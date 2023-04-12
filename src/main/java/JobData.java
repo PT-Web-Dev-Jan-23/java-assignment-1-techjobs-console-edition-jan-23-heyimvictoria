@@ -93,12 +93,11 @@ public class JobData {
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
         loadData();
         ArrayList <HashMap<String, String>> jobs = new ArrayList<>();
-        for (HashMap<String, String> row: allJobs){
-                if(row.toString().toUpperCase().contains(value.toUpperCase())) {
-                    jobs.add(row);
-                }
-
-        }
+//        for (HashMap<String, String> row: allJobs){
+//                if(row.toString().toUpperCase().contains(value.toUpperCase())) {
+//                    jobs.add(row);
+//                }
+//        }
 
         return jobs;
     }
