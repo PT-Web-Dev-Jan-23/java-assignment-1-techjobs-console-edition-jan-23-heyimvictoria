@@ -76,11 +76,10 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.toUpperCase().contains(value)) {
+            if (aValue.contains(value)) {
                 jobs.add(row);
             }
         }
-
         return jobs;
     }
 
@@ -92,14 +91,21 @@ public class JobData {
      */
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
         loadData();
-        ArrayList <HashMap<String, String>> jobs = new ArrayList<>();
-//        for (HashMap<String, String> row: allJobs){
-//                if(row.toString().contains(value.toUpperCase())) {
-//                    jobs.add(row);
-//                }
-//        }
-
-        return jobs;
+        ArrayList <HashMap<String, String>> allResults = new ArrayList<>();
+        for (HashMap<String, String> jobs : allJobs)
+            /* similar to my printJobs, this loops over each job in the allJobs list */
+            {
+            for (Map.Entry<String, String > filter : jobs.entrySet() )
+                /*loops over each filter (keys or job filters the user searches under name, position etc.) in the jobs hashmap*/ {
+                   if(filter.getValue().contains(value))
+                       /*returns the corresponding value of the entry from the hashmap  */
+                       {
+                    allResults.add(jobs);
+                    break;
+                }
+            }
+        }
+        return allResults;
     }
 
     /**

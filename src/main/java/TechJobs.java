@@ -65,7 +65,7 @@ public class TechJobs {
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
-                    System.out.println(searchField + searchTerm);
+//                    System.out.println(searchField + searchTerm);
                 }
             }
         }
@@ -125,7 +125,7 @@ public class TechJobs {
             System.out.print("No Results");
         }
         for(HashMap<String, String> jobs : someJobs){
-            //first loop that is supposed to look through the array structure
+            //first loop that is supposed to look through the array structure of jobs in the someJobs list
             System.out.println("\n" +
                     "*****");
             for (Map.Entry<String, String> job : jobs.entrySet()) {
