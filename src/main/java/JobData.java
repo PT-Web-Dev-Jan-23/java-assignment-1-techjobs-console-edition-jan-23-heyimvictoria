@@ -94,7 +94,7 @@ public class JobData {
         loadData();
         ArrayList <HashMap<String, String>> jobs = new ArrayList<>();
 //        for (HashMap<String, String> row: allJobs){
-//                if(row.toString().toUpperCase().contains(value.toUpperCase())) {
+//                if(row.toString().contains(value.toUpperCase())) {
 //                    jobs.add(row);
 //                }
 //        }
