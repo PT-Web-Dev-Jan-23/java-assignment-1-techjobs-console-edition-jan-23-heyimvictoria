@@ -97,7 +97,7 @@ public class JobData {
             {
             for (Map.Entry<String, String > filter : jobs.entrySet() )
                 /*loops over each filter (keys or job filters the user searches under name, position etc.) in the jobs hashmap*/ {
-                   if(filter.getValue().contains(value))
+                   if(filter.getValue().toString().toLowerCase().contains(value.toLowerCase()))
                        /*returns the corresponding value of the entry from the hashmap  */
                        {
                     allResults.add(jobs);
