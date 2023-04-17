@@ -76,7 +76,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -97,7 +97,7 @@ public class JobData {
             {
             for (Map.Entry<String, String > filter : jobs.entrySet() )
                 /*loops over each filter (keys or job filters the user searches under name, position etc.) in the jobs hashmap*/ {
-                   if(filter.getValue().toString().toLowerCase().contains(value.toLowerCase()))
+                   if(filter.getValue().toLowerCase().contains(value.toLowerCase()))
                        /*returns the corresponding value of the entry from the hashmap  */
                        {
                     allResults.add(jobs);
