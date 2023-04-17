@@ -5,10 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -79,11 +76,10 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
-
         return jobs;
     }
 
@@ -94,12 +90,22 @@ public class JobData {
      * @return      List of all jobs with at least one field containing the value
      */
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
-
-        // load data, if not already loaded
         loadData();
-
-        // TODO - implement this method
-        return null;
+        ArrayList <HashMap<String, String>> allResults = new ArrayList<>();
+        for (HashMap<String, String> jobs : allJobs)
+            /* similar to my printJobs, this loops over each job in the allJobs list */
+            {
+            for (Map.Entry<String, String > filter : jobs.entrySet() )
+                /*loops over each filter (keys or job filters the user searches under name, position etc.) in the jobs hashmap*/ {
+                   if(filter.getValue().toLowerCase().contains(value.toLowerCase()))
+                       /*returns the corresponding value of the entry from the hashmap  */
+                       {
+                    allResults.add(jobs);
+                    break;
+                }
+            }
+        }
+        return allResults;
     }
 
     /**
